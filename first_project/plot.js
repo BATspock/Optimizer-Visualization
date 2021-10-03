@@ -73,6 +73,52 @@ function plot_data(data) {
     .call(d3.axisLeft(yScale));
 
 
+
+    // Add x-axis label
+    svg.append('text')
+    .attr('x', w/2)
+    .attr('y', h - 15)
+    .attr('text-anchor', 'middle')
+    .style('font-family', 'sans-serif')
+    .text('Wavelength (nm)');
+    // Add y-axis label
+    svg.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('transform', 'translate(15,' + h/2 + ')rotate(-90)')
+    .style('font-family', 'sans-serif')
+    .text('Absorbance (O.D.)');
+
+    // Add legend
+    svg.append('path')
+    .datum([[750, 1.9], [800, 1.9]])
+    .attr('stroke', 'black')
+    .attr('stroke-width', 2)
+    .attr('d', d3.line()
+                .x((d) => xScale(d[0]))
+                .y((d) => yScale(d[1])));
+    svg.append('path')
+    .datum([[750, 1.7], [800, 1.7]])
+    .attr('stroke', 'steelblue')
+    .attr('stroke-width', 2)
+    .attr('d', d3.line()
+                .x((d) => xScale(d[0]))
+                .y((d) => yScale(d[1])));
+
+    svg.append('text')
+    .attr('x', xScale(805))
+    .attr('y', yScale(1.9))
+    .attr('alignment-baseline', 'central')
+    .style('font-family', 'sans-serif')
+    .style('font-size', '16px')
+    .text('Sample 1');
+    svg.append('text')
+    .attr('x', xScale(805))
+    .attr('y', yScale(1.7))
+    .attr('alignment-baseline', 'central')
+    .style('font-family', 'sans-serif')
+    .style('font-size', '16px')
+    .text('Sample 2');
+
     
   }
 
