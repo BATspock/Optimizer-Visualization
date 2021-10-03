@@ -119,7 +119,40 @@ function plot_data(data) {
     .style('font-size', '16px')
     .text('Sample 2');
 
-    
+    // Append circles for hovering points for sample 1
+    svg.selectAll('circle_samp_1')
+    .data(data_in_range)
+    .enter()
+    .append('circle')
+    .attr('cx', (d) => xScale(d[0]))
+    .attr('cy', (d) => yScale(d[1]))
+    .attr('r', 4)
+    .attr('fill', 'black')
+    .attr('class', 'points')
+    .style('pointer-events', 'all')
+    .append('title')
+    .text(function (d) {
+    return (
+    'Wavelength: ' + d[0] + ' nm' + '\n' + 'Absorbance: ' + d[1]
+    );
+    });
+    // Append circles for hovering for sample 2
+    svg.selectAll('circle_samp_2')
+    .data(data_in_range)
+    .enter()
+    .append('circle')
+    .attr('cx', (d) => xScale(d[0]))
+    .attr('cy', (d) => yScale(d[2]))
+    .attr('r', 4)
+    .attr('fill', 'steelblue')
+    .attr('class', 'points')
+    .style('pointer-events', 'all')
+    .append('title')
+    .text(function (d) {
+    return (
+    'Wavelength: ' + d[0] + ' nm' + '\n' + 'Absorbance: ' + d[2]
+    );
+    });
   }
 
 
