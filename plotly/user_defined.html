@@ -46,7 +46,7 @@
       const expr = math.compile(expression)
 
       // evaluate the expression repeatedly for different values of x
-      const xValues = math.range(-10, 10, 0.5).toArray()
+      const xValues = math.range(-10, 10, 0.1).toArray()
       const yValues = xValues.map(function (x) {
         return expr.evaluate({x: x})
       })
