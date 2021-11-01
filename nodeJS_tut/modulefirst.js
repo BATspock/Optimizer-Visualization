@@ -6,4 +6,10 @@ console.log(a[0])
 for (let i = 0; i < a.length; i++) {
     console.log(a[i]);
 }
+
+let sub = "English";
+let subtop = "Grammar";
+console.log(subjects[sub][subtop]);
+
+
 simple();
