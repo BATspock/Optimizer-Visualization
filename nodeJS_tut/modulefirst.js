@@ -9,12 +9,13 @@ let a = Object.keys(subjects);
 //}
 
 let sub = "English";
-console.log(Object.keys(Hindi))
+//console.log(Object.keys(Hindi))
 let subtop = "sandhi";
-console.log(Hindi[subtop]);
+//console.log(Hindi[subtop]);
 
 
 //simple();
 const json = require('./example.json');
 
-console.log(json);
+let b = json.request.intent.slots.subject.resolutions.resolutionsPerAuthority.values;
+console.log(b.name ); //Object.keys(b));
