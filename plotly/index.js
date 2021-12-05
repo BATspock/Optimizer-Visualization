@@ -1,15 +1,39 @@
-var trace1 = {
-  x: [1, 2, 3, 4],
-  y: [10, 15, 13, 17],
-  type: 'scatter'
+d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+var z_data=[ ]
+for(i=0;i<24;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+
+var data = [{
+  z: z_data,
+  type: 'surface',
+  contours: {
+    z: {
+      show:true,
+      usecolormap: true,
+      highlightcolor:"#42f462",
+      project:{z: true}
+    }
+  }
+}];
+
+var layout = {
+  title: 'Mt Bruno Elevation With Projected Contours',
+  scene: {camera: {eye: {x: 1.87, y: 0.88, z: -0.64}}},
+  autosize: false,
+  width: 500,
+  height: 500,
+  margin: {
+    l: 65,
+    r: 50,
+    b: 65,
+    t: 90,
+  }
 };
 
-var trace2 = {
-  x: [1, 2, 3, 4],
-  y: [16, 5, 11, 9],
-  type: 'scatter'
-};
-
-var data = [trace1, trace2];
-
-Plotly.newPlot('myDiv', data);
+Plotly.newPlot('myDiv', data, layout);
+});
