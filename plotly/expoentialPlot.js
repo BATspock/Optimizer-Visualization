@@ -1,27 +1,49 @@
-function exponential() {
-    var arr = [];
-    for (let i = 0; i < 100; i+=0.5) {
-        var temp = []
-        for (let j = 0;j< 100;j+=0.5){
-            temp.push((Math.pow(i,2)+Math.pow(j,2))/100);
-        }
-        arr.push(temp);
-    }
-    console.log(arr.length);
-    return arr;
-}
+var zPts = []; 
+var xPts = [];
+var yPts = [];
 
-var data = exponential();
-//console.log(data);
-Plotly.newPlot('chart', [{
-    z: data,
-  type: 'surface',
-  contours: {
-    z: {
-      show:true,
-      usecolormap: true,
-      highlightcolor:"#42f462",
-      project:{z: true}
-    }
+
+for(x=-10; x<10; x+=0.1) {
+  let zTemp = [];
+  let yTemp = [];
+  let xTemp = [];
+  for (y=-20; y<20; y+=0.1) {
+    //zTemp.push(Math.exp(Math.sin(x)*Math.cos(y)));
+    zTemp.push(Math.exp(Math.pow(x,2)/100+Math.pow(y,2)/100));
+    yTemp.push(y);
+    xTemp.push(x);
   }
-}]);
+  zPts.push(zTemp);
+  yPts.push(yTemp);
+  xPts.push(xTemp);
+  }
+
+var data = [{
+    z: zPts,
+    x: xPts,
+    y: yPts,
+    type: 'surface',
+    contours: {
+        z: {
+          show:true,
+          usecolormap: true,
+          highlightcolor:"#42f462",
+          project:{z: true}
+        }
+      }
+  }];
+  
+  var layout = {
+    title: 'My Plot',
+    autosize: false,  
+    width: 1000,
+    height: 1000,
+    margin: {
+      l: 65,
+      r: 50,
+      b: 65,
+      t: 90,
+    }
+  };
+  
+  Plotly.newPlot('theDiv', data, layout);
