@@ -24,14 +24,14 @@ Plotly.newPlot('chart', [{
       project:{z: true}
     }
   }
-}], layout);
+}]);
 
 var layout = {
-    title: 'Mt Bruno Elevation With Projected Contours',
+    title: 'Cos(x)*Sin(y)',
     scene: {camera: {eye: {x: 1.87, y: 0.88, z: -0.64}}},
     autosize: false,
-    width: 1000,
-    height: 1000,
+    width: 700,
+    height: 700,
     margin: {
       l: 65,
       r: 50,
