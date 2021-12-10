@@ -8,8 +8,8 @@ for(x=-10; x<10; x+=0.1) {
   let yTemp = [];
   let xTemp = [];
   for (y=-10; y<10; y+=0.1) {
-    //zTemp.push(Math.sin(x)*Math.cos(y));
-    zTemp.push(Math.pow(x,2)/100+Math.pow(y,2)/100);
+    zTemp.push(Math.exp(Math.sin(Math.pow(x,2)+Math.pow(y,2))));
+    //zTemp.push(Math.pow(x,2)/100+Math.pow(y,2)/100);
     yTemp.push(y);
     xTemp.push(x);
   }
