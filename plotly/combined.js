@@ -86,7 +86,7 @@ var function_plot = {
       }
 };
 
-var plot_data = [gradient_plot, function_plot];
+var plotData = [gradient_plot, function_plot];
 
 var layout = {
     title: 'Combined plot',
@@ -96,4 +96,5 @@ var layout = {
     yaxis2: {title: 'Line and Scatter Plot Axis', range: [-20, 20]}
 };
 
+Plotly.newPlot('plotDiv', plotData, layout);
 
