@@ -86,3 +86,14 @@ var function_plot = {
       }
 };
 
+var plot_data = [gradient_plot, function_plot];
+
+var layout = {
+    title: 'Combined plot',
+    height: 700,
+    width: 700,
+    yaxis: {title: 'Simple Contour Plot Axis', range: [-20, 20]},
+    yaxis2: {title: 'Line and Scatter Plot Axis', range: [-20, 20]}
+};
+
+
