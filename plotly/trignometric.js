@@ -3,13 +3,13 @@ var xPts = [];
 var yPts = [];
 
 
-for(x=-5; x<5; x+=0.1) {
+for(x=-10; x<10; x+=0.1) {
   let zTemp = [];
   let yTemp = [];
   let xTemp = [];
-  for (y=-5; y<5; y+=0.1) {
+  for (y=-10; y<10; y+=0.1) {
     //zTemp.push(Math.sin(x)*Math.cos(y));
-    zTemp.push((x*Math.exp(-1*Math.pow(x,2)/5 - Math.pow(y,2)/5))/2);
+    zTemp.push(Math.sin(Math.sqrt(x*x+y*y)));
     yTemp.push(y);
     xTemp.push(x);
   }
@@ -36,11 +36,11 @@ var function_plot = {
 };
 
 var layout = {
-    title: 'Exponetial plot',
+    title: 'Trignometric plot',
     scene: {camera: {eye: {x: 1.87, y: 0.88, z: -0.64}}},
     autosize: true,
-    width: 700,
-    height: 700,
+    width: 1100,
+    height: 800,
     margin: {
         l: 65,
         r: 50,

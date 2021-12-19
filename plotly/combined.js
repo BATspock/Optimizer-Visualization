@@ -27,7 +27,7 @@ function loss_function(x, y) {
     return (Math.pow(x,2)/100+Math.pow(y,2)/100);
 }
 
-let X = 10;
+let X = 8;
 let Y = 10;
 
 x_val.push(X);
