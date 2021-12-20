@@ -54,4 +54,4 @@ var layout = {
     width: 700
 };
 
-Plotly.newPlot('Div', [gradient_plot])
+Plotly.newPlot('Div', [gradient_plot], layout);
