@@ -22,7 +22,7 @@ for (let i = 0;i < 10000;i++) {
     x_val.push(X);
     y_val.push(Y);
     z_val.push(loss_function(X, Y));
-    c.push(i*0.025);
+    c.push(i*0.25);
 }
 
 
