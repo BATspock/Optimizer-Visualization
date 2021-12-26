@@ -43,7 +43,7 @@ z_val.push(loss_function(X, Y));
 
 let learning_rate  = 0.001;
 
-for (let i = 0;i < 100000;i++) {
+for (let i = 0;i < 1000;i++) {
     X = X - (learning_rate*(-2*X+1)*loss_function(X,Y));
     Y = Y - (learning_rate*(-2*Y)*loss_function(X,Y));
     x_val.push(X);
