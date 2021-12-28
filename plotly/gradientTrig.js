@@ -7,8 +7,8 @@ function loss_function(x, y) {
     return x*Math.exp(-1*Math.pow(x,2) - Math.pow(y,2));
 }
 
-let X = 0.1;
-let Y = -0.3;
+let X = 0.2;
+let Y = 0.1;
 
 x_val.push(X);
 y_val.push(Y);
@@ -16,9 +16,9 @@ z_val.push(loss_function(X, Y));
 
 let learning_rate  = 0.001;
 
-for (let i = 0;i < 10000;i++) {
-    X = X - (learning_rate*(-2*X+1)*loss_function(X,Y));
-    Y = Y - (learning_rate*(-2*Y)*loss_function(X,Y));
+for (let i = 0;i < 100000;i++) {
+    X = X - (learning_rate*(-2*X+1));
+    Y = Y - (learning_rate*(-2*Y));
     x_val.push(X);
     y_val.push(Y);
     z_val.push(loss_function(X, Y));
