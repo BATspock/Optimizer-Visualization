@@ -7,8 +7,8 @@ function loss_function(x, y) {
     return Math.sin(Math.sqrt(x*x+y*y));
 }
 
-let X = 0.2;
-let Y = 0.1;
+let X = -3;
+let Y = 8;
 
 x_val.push(X);
 y_val.push(Y);
@@ -51,7 +51,7 @@ var gradient_plot = {
 };
 
 var layout = {
-    title: 'Exp descent',
+    title: 'Trig descent',
     height: 700,
     width: 700
 };
