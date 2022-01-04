@@ -28,8 +28,8 @@ function loss_function(x, y) {
     return Math.sin(Math.sqrt(x*x+y*y));
 }
 
-let X = -0.8;
-let Y = 0.8;
+let X = -7.6;
+let Y = 0.5;
 
 x_val.push(X);
 y_val.push(Y);
@@ -37,7 +37,7 @@ z_val.push(loss_function(X, Y));
 
 let learning_rate  = 0.001;
 
-for (let i = 0;i < 1000;i++) {
+for (let i = 0;i < 10000;i++) {
   Xold = X;
   Yold = Y;
     X = Xold - (learning_rate*(Xold*Math.cos(Math.sqrt(Xold*Xold+Yold*Yold))/Math.sqrt(Xold*Xold + Yold*Yold)));
