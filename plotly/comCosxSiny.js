@@ -28,8 +28,8 @@ function loss_function(x, y) {
     return Math.sin(Math.sqrt(1+Math.cos(x)*Math.sin(y)));
 }
 
-let X = -7.6;
-let Y = 0.5;
+let X = 3.8;
+let Y = 4.3;
 
 x_val.push(X);
 y_val.push(Y);
