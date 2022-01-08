@@ -25,6 +25,6 @@ var layout = {
     //yaxis2: {title: 'Line and Scatter Plot Axis', range: [-20, 20]}
 };
 
-exports.get = function(l){
+exports.get = function(){
     return layout;
 }
