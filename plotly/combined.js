@@ -118,3 +118,6 @@ var layout = {
 
 Plotly.newPlot('plotDiv', plotData, layout);
 
+plotDiv.on('plotly_click', function(){
+  alert('You clicked this Plotly chart!');
+});
