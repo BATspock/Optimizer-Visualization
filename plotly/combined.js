@@ -27,8 +27,77 @@ function loss_function(x, y) {
     return (Math.pow(x,2)/100+Math.pow(y,2)/100);
 }
 
-let X = 8;
-let Y = 10;
+
+
+
+var function_plot = {
+    z: zPts,
+    x: xPts,
+    y: yPts,
+    
+    type: 'surface',
+    
+    contours: {
+        z: {
+          show:true,
+          usecolormap: true,
+          highlightcolor:"#42f462",
+          project:{z: true}
+        }
+      }
+};
+
+var plotData = [function_plot];
+
+var layout = {
+    title: 'Combined plot',
+    height: 800,
+    width: 1500,
+    yaxis: {title: 'Simple Contour Plot Axis', range: [-20, 20]},
+    yaxis2: {title: 'Line and Scatter Plot Axis', range: [-20, 20]},
+    scene: {
+      xaxis: { title: 'X' },
+      yaxis: { title: 'Y' },
+      zaxis: { title: 'Z' },
+      aspectratio: {
+        x: 1.2,
+        y: 1.2,
+        z: 0.75
+      }
+    },
+    autosize: true,
+    margin: {
+      l: 50,
+      r: 0,
+      b: 0,
+      t: 30,
+      pad: 0
+    },
+};
+
+Plotly.newPlot('plotDiv', plotData, layout);
+
+let X ;
+let Y ;
+
+plotDiv.on('plotly_click', function(data){
+  var pts = '';
+  for(var i=0; i < data.points.length; i++){
+      pts = 'x = '+data.points[i].x.toPrecision(4) +'\ny = '+ 
+          data.points[i].y.toPrecision(4) + '\n\n';
+
+      console.log(data);
+      X = data.points[i].x;
+      Y = data.points[i].y;
+
+      console.log(X, Y);
+  }
+  alert('Closest point clicked:\n\n'+pts);
+});
+
+
+
+
 
 x_val.push(X);
 y_val.push(Y);
@@ -70,59 +139,6 @@ var gradient_plot = {
     }
 };
 
-
-var function_plot = {
-    z: zPts,
-    x: xPts,
-    y: yPts,
-    
-    type: 'surface',
-    
-    contours: {
-        z: {
-          show:true,
-          usecolormap: true,
-          highlightcolor:"#42f462",
-          project:{z: true}
-        }
-      }
-};
-
 var plotData = [gradient_plot, function_plot];
 
-var layout = {
-    title: 'Combined plot',
-    height: 800,
-    width: 1500,
-    yaxis: {title: 'Simple Contour Plot Axis', range: [-20, 20]},
-    yaxis2: {title: 'Line and Scatter Plot Axis', range: [-20, 20]},
-    scene: {
-      xaxis: { title: 'X' },
-      yaxis: { title: 'Y' },
-      zaxis: { title: 'Z' },
-      aspectratio: {
-        x: 1.2,
-        y: 1.2,
-        z: 0.75
-      }
-    },
-    autosize: true,
-    margin: {
-      l: 50,
-      r: 0,
-      b: 0,
-      t: 30,
-      pad: 0
-    },
-};
-
 Plotly.newPlot('plotDiv', plotData, layout);
-
-plotDiv.on('plotly_click', function(data){
-  var pts = '';
-  for(var i=0; i < data.points.length; i++){
-      pts = 'x = '+data.points[i].x.toPrecision(4) +'\ny = '+
-          data.points[i].y.toPrecision(4) + '\n\n';
-  }
-  alert('Closest point clicked:\n\n'+pts);
-});
