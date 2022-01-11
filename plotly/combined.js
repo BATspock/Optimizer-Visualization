@@ -119,16 +119,10 @@ var layout = {
 Plotly.newPlot('plotDiv', plotData, layout);
 
 plotDiv.on('plotly_click', function(data){
-  var pn='',
-      tn='',
-      colors=[];
+  var pts = '';
   for(var i=0; i < data.points.length; i++){
-    pn = data.points[i].pointNumber;
-    tn = data.points[i].curveNumber;
-    colors = data.points[i].data.marker.color;
-  };
-  colors[pn] = '#C54C82';
-
-  var update = {'marker':{color: colors, size:16}};
-  Plotly.restyle('myDiv', update, [tn]);
+      pts = 'x = '+data.points[i].x +'\ny = '+
+          data.points[i].y.toPrecision(4) + '\n\n';
+  }
+  alert('Closest point clicked:\n\n'+pts);
 });
