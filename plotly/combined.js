@@ -36,7 +36,7 @@ z_val.push(loss_function(X, Y));
 
 let learning_rate  = 0.001;
 
-for (let i = 0;i < 100000;i++) {
+for (let i = 0;i < 200000;i++) {
   Xold = X;
   Yold = Y;
     X = Xold - (learning_rate*(Xold/50));
@@ -121,7 +121,7 @@ Plotly.newPlot('plotDiv', plotData, layout);
 plotDiv.on('plotly_click', function(data){
   var pts = '';
   for(var i=0; i < data.points.length; i++){
-      pts = 'x = '+data.points[i].x +'\ny = '+
+      pts = 'x = '+data.points[i].x.toPrecision(4) +'\ny = '+
           data.points[i].y.toPrecision(4) + '\n\n';
   }
   alert('Closest point clicked:\n\n'+pts);
