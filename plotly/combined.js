@@ -118,6 +118,17 @@ var layout = {
 
 Plotly.newPlot('plotDiv', plotData, layout);
 
-plotDiv.on('plotly_click', function(){
-  alert('You clicked this Plotly chart!');
+plotDiv.on('plotly_click', function(data){
+  var pn='',
+      tn='',
+      colors=[];
+  for(var i=0; i < data.points.length; i++){
+    pn = data.points[i].pointNumber;
+    tn = data.points[i].curveNumber;
+    colors = data.points[i].data.marker.color;
+  };
+  colors[pn] = '#C54C82';
+
+  var update = {'marker':{color: colors, size:16}};
+  Plotly.restyle('myDiv', update, [tn]);
 });
