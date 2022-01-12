@@ -93,52 +93,53 @@ plotDiv.on('plotly_click', function(data){
       console.log(X, Y);
   }
   alert('Closest point clicked:\n\n'+pts);
+  grad(X,Y);
 });
 
 
+function grad(X, Y) { 
+
+  x_val.push(X);
+  y_val.push(Y);
+  z_val.push(loss_function(X, Y));
+
+  let learning_rate  = 0.001;
+
+  for (let i = 0;i < 20000;i++) {
+    Xold = X;
+    Yold = Y;
+      X = Xold - (learning_rate*(Xold/50));
+      Y = Yold - (learning_rate*(Yold/50));
+      x_val.push(X);
+      y_val.push(Y);
+      z_val.push(loss_function(X, Y));
+      c.push(i*0.00025);
+  }
 
 
+  var gradient_plot = {
+      type: 'scatter3d',
+      mode: 'lines+markers',
 
-x_val.push(X);
-y_val.push(Y);
-z_val.push(loss_function(X, Y));
+      x: x_val,
+      y: y_val,
+      z: z_val,
 
-let learning_rate  = 0.001;
+      line: {
+        width: 6,
+        color: c,
+        colorscale: "Viridis"},
+      
+      marker: {
+        size: 3.5,
+        color: c,
+        colorscale: "Greens",
+        cmin: -20,
+        cmax: 50
+      }
+  };
 
-for (let i = 0;i < 200000;i++) {
-  Xold = X;
-  Yold = Y;
-    X = Xold - (learning_rate*(Xold/50));
-    Y = Yold - (learning_rate*(Yold/50));
-    x_val.push(X);
-    y_val.push(Y);
-    z_val.push(loss_function(X, Y));
-    c.push(i*0.00025);
-}
-
-
-var gradient_plot = {
-    type: 'scatter3d',
-    mode: 'lines+markers',
-    
-    x: x_val,
-    y: y_val,
-    z: z_val,
-    
-    line: {
-      width: 6,
-      color: c,
-      colorscale: "Viridis"},
-    
-    marker: {
-      size: 3.5,
-      color: c,
-      colorscale: "Greens",
-      cmin: -20,
-      cmax: 50
-    }
-};
-
-var plotData = [gradient_plot, function_plot];
+  var plotData = [gradient_plot, function_plot];
 
 Plotly.newPlot('plotDiv', plotData, layout);
+}
