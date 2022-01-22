@@ -28,8 +28,6 @@ function loss_function(x, y) {
 }
 
 
-
-
 var function_plot = {
     z: zPts,
     x: xPts,
