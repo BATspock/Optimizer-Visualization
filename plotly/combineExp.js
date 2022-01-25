@@ -19,7 +19,7 @@ for(x=-5; x<5; x+=0.1) {
 }
 
 
-var x_val = []
+var x_val = [];
 var y_val = [];
 var z_val = [];
 var c = [];
