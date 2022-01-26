@@ -28,48 +28,6 @@ function loss_function(x, y) {
     return Math.sin(Math.sqrt(1+Math.cos(x)*Math.sin(y)));
 }
 
-let X = 0.5;
-let Y = 1.2;
-
-x_val.push(X);
-y_val.push(Y);
-z_val.push(loss_function(X, Y));
-
-let learning_rate  = 0.001;
-
-for (let i = 0;i < 10000;i++) {
-  Xold = X;
-  Yold = Y;
-    X = Xold - (learning_rate*(-1*(Math.sin(Xold)*Math.sin(Yold)/(2*Math.sqrt(1+ Math.cos(Xold)*Math.sin(Yold))))));
-    Y = Yold - (learning_rate*(Math.cos(Xold)*Math.cos(Yold)/(2*Math.sqrt(1+ Math.cos(Xold)*Math.sin(Yold)))));
-    x_val.push(X);
-    y_val.push(Y);
-    z_val.push(loss_function(X, Y));
-    c.push(i*0.001);
-}
-
-
-var gradient_plot = {
-    type: 'scatter3d',
-    mode: 'lines+markers',
-    
-    x: x_val,
-    y: y_val,
-    z: z_val,
-    
-    line: {
-      width: 6,
-      color: c,
-      colorscale: "Viridis"},
-    
-    marker: {
-      size: 3.5,
-      color: c,
-      colorscale: "Greens",
-      cmin: -20,
-      cmax: 50
-    }
-};
 
 var function_plot = {
     z: zPts,
@@ -88,7 +46,7 @@ var function_plot = {
       }
 };
 
-var plotData = [gradient_plot, function_plot];
+var plotData = [function_plot];
 
 var layout = {
     title: 'Combined CosX SinY',

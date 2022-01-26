@@ -114,7 +114,6 @@ function grad(X, Y) {
       c.push(i*0.00025);
   }
 
-
   var gradient_plot = {
       type: 'scatter3d',
       mode: 'lines+markers',
