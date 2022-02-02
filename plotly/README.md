@@ -5,3 +5,5 @@
 ### user can select the number of iterations
 
 ### user should be able to select the learning rate 
+
+### user can rotate and zoom on to the graphs
