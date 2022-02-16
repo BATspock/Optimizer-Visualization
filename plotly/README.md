@@ -7,3 +7,5 @@
 ### user should be able to select the learning rate 
 
 ### user can rotate and zoom on to the graphs
+
+### user can update values in real time 
