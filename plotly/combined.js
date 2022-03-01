@@ -103,7 +103,7 @@ function grad(X, Y) {
 
   let learning_rate  = 0.001;
 
-  for (let i = 0;i < 20000;i++) {
+  for (let i = 0;i < 200000;i++) {
     Xold = X;
     Yold = Y;
       X = Xold - (learning_rate*(Xold/50));
