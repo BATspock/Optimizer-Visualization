@@ -1,15 +1,18 @@
-<form>
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname">
-  </form>
-
-
-  <input type="text" onkeyup="trackChange(this.value)" id="myInput">
-  <script>
-  function trackChange(value) {
-      window.open("http://www.google.com/search?output=search&q=" + value)
-      console.log(value);
-  }
-  </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	a: <input type="number" name="a" id="a"><br>
+	b: <input type="number" name="b" id="b"><br>
+	<button onclick="add(document.getElementById('a').value, document.getElementById('b').value)">Add</button>
+	<script type="text/javascript">
+		function add(a, b) {
+			var sum = parseInt(a) + parseInt(b);
+			alert(sum);
+		}
+	</script>
+</body>
+</html>
