@@ -8,11 +8,8 @@
 	a: <input type="number" name="a" id="a"><br>
 	b: <input type="number" name="b" id="b"><br>
 	<button onclick="add(document.getElementById('a').value, document.getElementById('b').value)">Add</button>
-	<script type="text/javascript">
-		function add(a, b) {
-			var sum = parseInt(a) + parseInt(b);
-			alert(sum);
-		}
+	<script type="text/javascript" src="testFunction.js" >
+		alert(addTwoNumners(a,b));
 	</script>
 </body>
 </html>
