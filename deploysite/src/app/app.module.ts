@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PolynomialComponent } from './polynomial/polynomial.component';
+import { ExponentialComponent } from './exponential/exponential.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PolynomialComponent,
+    ExponentialComponent
   ],
   imports: [
     BrowserModule,
